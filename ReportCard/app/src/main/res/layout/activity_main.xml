@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context="com.leventalahan.android.reportcard.MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollOne"
+
+      >
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/headMenu">
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editName"
+        android:layout_alignBottom="@+id/editName"
+        android:layout_alignParentStart="true"
+        android:text="@string/name"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/editName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/surname"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/surname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editSurname"
+        android:layout_alignBottom="@+id/editSurname"
+        android:layout_alignParentStart="true"
+        android:text="@string/surname"
+        android:textSize="16sp" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editSurname"
+        android:layout_toEndOf="@id/surname"
+        android:layout_below="@id/editName"
+        />
+    <TextView
+        android:id="@+id/className"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/editClass"
+        android:layout_alignBottom="@+id/surname"
+        android:text="@string/className"
+        android:textSize="16sp" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editClass"
+        android:layout_toEndOf="@id/className"
+        android:layout_below="@id/editSurname"
+        />
+    <EditText
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/classGrade"
+        android:layout_toEndOf="@id/className"
+        android:layout_below="@id/editClass"
+        />
+    <TextView
+        android:id="@+id/gradeClass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/classGrade"
+        android:layout_alignBottom="@+id/className"
+        android:text="@string/classGrade"
+        android:textSize="16sp" />
+    <TextView
+        android:id="@+id/yearClass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/classGrade"
+        android:layout_alignBaseline="@id/classGrade"
+        android:text="@string/classYear"
+        android:textSize="16sp"
+
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/yearClassEdit"
+        android:layout_toEndOf="@id/yearClass"
+        android:layout_below="@id/editClass"
+        android:inputType="number"
+        />
+
+</RelativeLayout>
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/scrollAlt"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/execute"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/scrollOne"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:id="@+id/listReport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="15dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/pasteName"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/pasteSurName"/>
+            <TextView
+            android:id="@+id/table"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+    </ScrollView>
+        <Button
+            android:id="@+id/execute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:text="@string/execute"
+            android:onClick="execute"/>
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/execute"
+        android:layout_toLeftOf="@id/button"
+        android:text="@string/reset"
+        android:onClick="reset"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/addCourse"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentBottom="true"
+        android:onClick="addCourse"
+        android:id="@+id/button" />
+
+    <LinearLayout
+        android:id="@+id/listCourse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/button"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+
+    </LinearLayout>
+</RelativeLayout>

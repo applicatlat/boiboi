@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Report Card</string>
+    <string name="name">Name:</string>
+    <string name="surname">Surname:</string>
+    <string name="execute">EXECUTE</string>
+    <string name="className">Course Name:</string>
+    <string name="classGrade">Course Grade:</string>
+    <string name="classYear">Course Year:</string>
+    <string name="className1">Course Name</string>
+    <string name="classGrade1">Course Grade</string>
+    <string name="classYear1">Course Year</string>
+    <string name="addCourse">SAVE COURSE</string>
+    <string name="reset">RESET</string>
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
+    <string name="control">You need to fill all.</string>
+    <string name="dialogTitle">To Proceed</string>
+
+</resources>
