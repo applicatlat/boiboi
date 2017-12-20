@@ -131,6 +131,10 @@
             android:id="@+id/table"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/listOn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
 
@@ -143,16 +147,15 @@
             android:layout_marginTop="10dp"
             android:text="@string/execute"
             android:onClick="execute"/>
+
     <Button
         android:id="@+id/reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="10dp"
-        android:layout_toRightOf="@id/execute"
-        android:layout_toLeftOf="@id/button"
-        android:text="@string/reset"
-        android:onClick="reset"/>
+        android:layout_centerHorizontal="true"
+        android:onClick="reset"
+        android:text="@string/reset" />
 
     <Button
         android:layout_width="wrap_content"
@@ -163,6 +166,16 @@
         android:layout_alignParentBottom="true"
         android:onClick="addCourse"
         android:id="@+id/button" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/load"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentBottom="true"
+        android:onClick="load1"
+        android:id="@+id/button1"
+        android:visibility="invisible"/>
 
     <LinearLayout
         android:id="@+id/listCourse"

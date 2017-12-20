@@ -8,6 +8,7 @@ import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -31,31 +32,80 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addCourse (View view){
-        public void saveInfo(View view) {
 
-            EditText username1 = (EditText) findViewById(R.id.editname); //submitpage name section edittext data
-            EditText email1 = (EditText) findViewById(R.id.edit_posta); //submitpage name section edittext data
 
             String saveme = getResources().getString(R.string.saved);
+            TextView name = (TextView) findViewById(R.id.pasteName);
+            TextView surname = (TextView) findViewById(R.id.pasteSurName);
+            TextView table = (TextView) findViewById(R.id.table);
+              TextView list = (TextView) findViewById(R.id.listOn);
 
             SharedPreferences sharedPref = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPref.edit();
-            editor.putString("username", username1.getText().toString());
-            editor.putString("email", email1.getText().toString());
-            editor.apply();
+
+            editor.putString("name", name.getText().toString());
+            editor.putString("surname", surname.getText().toString());
+            editor.putString("table", table.getText().toString());
+        editor.putString("list", list.getText().toString());
+
+        editor.apply();
 
             Toast.makeText(this, saveme, Toast.LENGTH_LONG).show();
 
+        Button btn = (Button) findViewById(R.id.button);
+        String loadIt = getString(R.string.load);
+        btn.setText(loadIt);
+        Button btn1 = (Button) findViewById(R.id.button1);
+
+        if(btn.getText().equals(loadIt)){
+            btn.setVisibility(View.INVISIBLE);
+            btn1.setVisibility(View.VISIBLE);
         }
+
+
     }
+    public void load1 (View view) {
+        SharedPreferences sharedPref = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+        String name = sharedPref.getString("name", "");
+        String surname = sharedPref.getString("surname", "");
+        String table = sharedPref.getString("table", "");
+        String list = sharedPref.getString("list", "");
+
+        TextView name1 = (TextView) findViewById(R.id.pasteName);
+        TextView surname1 = (TextView) findViewById(R.id.pasteSurName);
+        TextView table1 = (TextView) findViewById(R.id.table);
+        TextView list1 = (TextView) findViewById(R.id.listOn);
+
+        name1.setText(name);
+        surname1.setText(surname);
+        table1.setText(table);
+        list1.setText(list);
+
+
+        Button btn = (Button) findViewById(R.id.button);
+        String saved = getString(R.string.addCourse);
+        btn.setText(saved);
+        Button btn1 = (Button) findViewById(R.id.button1);
+        btn1.setVisibility(View.INVISIBLE);
+        btn.setVisibility(View.VISIBLE);
+
+    }
+
     public void reset (View view){
         LinearLayout rootView = (LinearLayout) findViewById(R.id.listReport);
-        TextView wordView = new TextView(this);
-        rootView.removeAllViews();
+        TextView name = (TextView) findViewById(R.id.pasteName);
+        TextView surname = (TextView) findViewById(R.id.pasteSurName);
+        TextView table = (TextView) findViewById(R.id.table);
+        TextView list = (TextView) findViewById(R.id.listOn);
+
+        name.setText(null);
+        surname.setText(null);
+        table.setText(null);
+        list.setText(null);
+
     }
 
     public void execute (View view){
-        int index = 0;
         EditText name = (EditText) findViewById(R.id.editName);
         EditText classYear1 = (EditText) findViewById(R.id.yearClassEdit);
         EditText surName = (EditText) findViewById(R.id.editSurname);
@@ -129,26 +179,28 @@ public class MainActivity extends AppCompatActivity {
 
         // Create an array of words
         ArrayList<String> words =new ArrayList<String>();
-        words.add(  index + "- " + classNameOn + "  " + "|" +"  " +  yearClass + "  " + "|" +"  " + gradePaste );
+        int index = 0;
+
+        words.add(  index + "- " + classNameOn + "  " + "|" +"  " +  yearClass + "  " + "|" +"  " + gradePaste + "\n" );
 
 
 
 // words add one sıfırıncı oldugundan aşşadaki 0 yukardaki 1'i işaret ediyor .
         // find the rootview of the layout
 
-    LinearLayout rootView = (LinearLayout) findViewById(R.id.listReport);
+        TextView list1 = (TextView) findViewById(R.id.listOn);
 
 
         //while loop code
 
 
     //set up counter variable
+
         while(index<words.size()) {
             //Create a new that displayed the word at
             //and add the View as a child to the Rootview
             TextView wordView = new TextView(this);
-            wordView.setText(words.get(index));
-            rootView.addView(wordView);
+            list1.setText(words.get(index));
 
             index ++; // index = index +1;
         }
